@@ -1,0 +1,35 @@
+PROJECT STEPS
+-------------
+(project created under Ubuntu 22.04, with Laravel 11.0.4, php 8.3, mysql 8.0.36)
+
+-create new laravel project
+    -run "composer create-project laravel/laravel lara_rest_api"
+
+-create database
+    (-you can use whatever you want, e.g. phpmyadmin, mysql cli, etc. i'll use mysql cli)
+    -enter mysql cli by running "mysql -u root" (or whatever mysql user you use instead of root)
+    -make sure your mysql's default storage engine is InnoDB. e.g. run "SHOW ENGINES;" (for InnoDB you should have DEFAULT in the Suport column)
+    -run "CREATE DATABASE lara_rest_api CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;"
+
+-configure the db
+    -open .env, set "APP_NAME=Lara_REST_API" and "DB_DATABASE=lara_rest_api"
+
+-run initial migration
+    -run "php artisan migrate" in the project folder
+    (
+        -when i 1st ran the command, i got an error, "SQLSTATE[HY000] [1698] Access denied for user 'root'@'localhost' [...]". it was because i just 
+        did a fresh install of mysql in ubuntu(well, of everything, i just set up my ubuntu OS, but the fresh mysql install caused this), and i was 
+        using the default 'root' mysql user, which, upon a fresh install uses 'auth_socket' as authentication method(more info about this here 
+        https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-22-04) - it's a situation where running "mysql -u root -p" 
+        doesn't work, you have to use "sudo mysql -u root -p" because 'root' also needs your ubuntu user's password, because of 'auth_socket'
+            -to check this, enter the mysql cli with "sudo mysql -u root -p", then run, "show databases;", "use mysql;", "show tables;", 
+            "select * from user where User='root'\G;" - here you can see 'plugin: auth_socket'; (\G is for formatting the query result)
+        -to fix this, i used the 1st answer from https://askubuntu.com/questions/998920/1698-access-denied-for-user-rootlocalhost-mysql-5-7-and-ubuntu-16-04 - specifically, i ran: 
+            mysql> USE mysql;
+            mysql> UPDATE user SET plugin='mysql_native_password' WHERE User='root';
+            mysql> FLUSH PRIVILEGES;
+            mysql> exit;
+        -then i was able to run "php artisan migrate";
+    )
+
+-generate models
