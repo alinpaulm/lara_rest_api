@@ -41,6 +41,9 @@ PROJECT STEPS
     -make model & migration "php artisan make:model ImageManipulation --migration"
     -write migration
     -"php artisan migrate"
+
+-Album CRUD
+    -"php artisan make:controller AlbumController --api --model=Album --requests"
     
 
 
