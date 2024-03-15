@@ -32,4 +32,5 @@ PROJECT STEPS
         -then i was able to run "php artisan migrate";
     )
 
--generate models
+-Album model & migration
+    -"php artisan make:model Album --migration"
