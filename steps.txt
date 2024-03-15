@@ -39,6 +39,8 @@ PROJECT STEPS
 
 -ImageManipulation model & migration
     -make model & migration "php artisan make:model ImageManipulation --migration"
+    -write migration
+    -"php artisan migrate"
     
 
 
