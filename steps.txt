@@ -33,4 +33,12 @@ PROJECT STEPS
     )
 
 -Album model & migration
-    -"php artisan make:model Album --migration"
+    -make model & migration "php artisan make:model Album --migration"
+    -write migration
+    
+
+
+
+TODO
+----
+-add foreign key constraints
