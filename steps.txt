@@ -61,3 +61,4 @@ PROJECT STEPS
 TODO
 ----
 -add foreign key constraints
+-maybe add unique index(es) to ImageManipulation migration too
