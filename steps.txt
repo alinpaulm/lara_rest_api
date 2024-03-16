@@ -42,6 +42,10 @@ PROJECT STEPS
     -write migration
     -"php artisan migrate"
 
+-updated "albums" table
+    -"php artisan make:migration update_albums_table --table=albums"
+    -added unique() index
+
 -Album CRUD
     -"php artisan make:controller AlbumController --api --model=Album --requests"
     
