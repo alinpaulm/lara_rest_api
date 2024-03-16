@@ -52,10 +52,11 @@ PROJECT STEPS
     -"php artisan make:controller AlbumController --api --model=Album --requests"
     -write validation rules in the app/Http/Requests files
     -discovered that Laravel 11 does not have routes/api.php(i.e. API development support) by default (https://laraveldaily.com/post/laravel-11-main-new-features-changes ,
-    https://laravel.com/docs/11.x/releases#laravel-11).
-        -ran "php artisan install:api" ("Create an API routes file and install Laravel Sanctum or Laravel Passport") - it installs Sanctum by default, 
-        which is what i need for the tutorial (p.s. run "php artisan install:api --help" to see how to install Passport instead)
+    https://laravel.com/docs/11.x/releases#laravel-11) - nor does it have Sanctum pre-installed, which we'll user later on.
+        -ran "php artisan install:api" ("Create an API routes file and install Laravel Sanctum or Laravel Passport" - by default it installs Sanctum,
+        which is what i need for the tutorial (p.s. run "php artisan install:api --help" to see how to install Passport instead))
             -it prompts you: "One new database migration has been published. Would you like to run all pending database migrations?" - choose yes
+            -"INFO  API scaffolding installed. Please add the [Laravel\Sanctum\HasApiTokens] trait to your User model." - did that
 
 
 
