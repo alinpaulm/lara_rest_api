@@ -46,9 +46,12 @@ PROJECT STEPS
     -"php artisan make:migration update_albums_table --table=albums"
     -added unique() index
 
+-added postman_collection.json
+
 -Album CRUD
     -"php artisan make:controller AlbumController --api --model=Album --requests"
-    
+    -write validation rules in the app/Http/Requests files
+    -
 
 
 
@@ -64,5 +67,8 @@ PROJECT STEPS
 
 TODO
 ----
--add foreign key constraints
+-add foreign key constraints (+validation rule(right? i think so))
+(-add unique(user_id, name) validation for album? don't think it's needed
+    -by the same token you may say "well then why is foreign key validation required? cuz it's already at db level", or even "why max:255? it's already at db level"
+        and the answer is maybe cuz you get better error messages/etc - check it out)
 -maybe add unique index(es) to ImageManipulation migration too

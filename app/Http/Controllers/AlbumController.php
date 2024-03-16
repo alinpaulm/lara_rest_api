@@ -21,7 +21,10 @@ class AlbumController extends Controller
      */
     public function store(StoreAlbumRequest $request)
     {
-        //
+        $album = Album::create($request->all());
+        // $album = Album::create($request->validated());
+
+        return $album;
     }
 
     /**
