@@ -51,14 +51,15 @@ PROJECT STEPS
 -Album CRUD
     -"php artisan make:controller AlbumController --api --model=Album --requests"
     -write validation rules in the app/Http/Requests files
-    -discovered that Laravel 11 does not have routes/api.php(i.e. API development support) by default (https://laraveldaily.com/post/laravel-11-main-new-features-changes ,
-    https://laravel.com/docs/11.x/releases#laravel-11) - nor does it have Sanctum pre-installed, which we'll user later on.
-        -ran "php artisan install:api" ("Create an API routes file and install Laravel Sanctum or Laravel Passport" - by default it installs Sanctum,
-        which is what i need for the tutorial (p.s. run "php artisan install:api --help" to see how to install Passport instead))
-            -it prompts you: "One new database migration has been published. Would you like to run all pending database migrations?" - choose yes
+    -discovered that Laravel 11 does not have routes/api.php (i.e. API development support) by default (https://laraveldaily.com/post/laravel-11-main-new-features-changes ,
+    https://laravel.com/docs/11.x/releases#laravel-11) - nor does it have Sanctum pre-installed anymore, which we'll use later on.
+        -ran "php artisan install:api" 
+            -"Create an API routes file and install Laravel Sanctum or Laravel Passport" - by default it installs Sanctum,
+        which is what i need for the tutorial (p.s. run "php artisan install:api --help" to see how to install Passport instead)
             -"INFO  API scaffolding installed. Please add the [Laravel\Sanctum\HasApiTokens] trait to your User model." - did that
-
-
+    -added AlbumController routes in routes/api.php
+    -added "protected $fillable" in app/Models/Album.php for mass assignment
+    -implemented AlbumController methods
 
 
 
@@ -72,8 +73,9 @@ PROJECT STEPS
 
 TODO
 ----
--add foreign key constraints (+validation rule(right? i think so))
-(-add unique(user_id, name) validation for album? don't think it's needed
-    -by the same token you may say "well then why is foreign key validation required? cuz it's already at db level", or even "why max:255? it's already at db level"
-        and the answer is maybe cuz you get better error messages/etc - check it out)
+-remove the tmp nullable() from album and image_manipulations migrations
+-add foreign key constraints
+    -also add validation rule? no need - 1) i ignore any possible user_id provided by a malicious user by using $request->validated() instead of $request->all() AND not making a 
+    user_id validation rule and 2) i'll then add the logged in user's id to the validated data array in the controller action
+-add unique(user_id, name) validation for album (for a nice error message, to not display the sql error message)
 -maybe add unique index(es) to ImageManipulation migration too
