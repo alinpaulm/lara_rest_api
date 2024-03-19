@@ -61,9 +61,14 @@ PROJECT STEPS
     -added "protected $fillable" in app/Models/Album.php for mass assignment
     -implemented AlbumController methods
 
+-API versioning & API resources (for Album model)
+    -added V1 prefix to the AlbumController routes
+        -also correct AlbumController path in routes, "use App\Http\Controllers\V1\AlbumController"
+    -added V1 folder  under app/Http/Controllers, moved AlbumController there, make required path corrections(for "namespace" & "use" instructions)
+    -"php artisan make:resources V1/AlbumResource"
+    -implemented AlbumResource, edited AlbumController to use it
 
-
-
+56:15 [...] 1:01:45
 
 
 

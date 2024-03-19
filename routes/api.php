@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\V1\AlbumController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -9,4 +9,6 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 
-Route::apiResource('album', AlbumController::class);
+Route::prefix('v1')->group(function() {
+    Route::apiResource('album', AlbumController::class);
+});
