@@ -69,7 +69,8 @@ PROJECT STEPS
     -implemented AlbumResource, edited AlbumController to use it
 
 56:15 [...] 1:01:45
-
+-ImageManipulation CRUD
+    -"php artisan make:controller V1/ImageManipulationController --api --model=ImageManipulation --requests"
 
 
 
