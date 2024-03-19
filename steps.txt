@@ -68,10 +68,19 @@ PROJECT STEPS
     -"php artisan make:resources V1/AlbumResource"
     -implemented AlbumResource, edited AlbumController to use it
 
-56:15 [...] 1:01:45
 -ImageManipulation CRUD + API resource
     -"php artisan make:controller V1/ImageManipulationController --api --model=ImageManipulation --requests"
     -"php artisan make:resource V1/ImageManipulationResource"
+    -we won't implement support for updating ImageManipulation so i:
+        -deleted app/Http/Requests/UpdateImageManipulationRequest.php
+        -deleted update() from app/Http/Controllers/V1/ImageManipulationController.php
+    -we won't implement support for storing ImageManipulation, but for resizing an image so i:
+        -renamed store() from app/Http/Controllers/V1/ImageManipulationController.php to resize()
+        -renamed app/Http/Requests/StoreImageManipulationRequest.php to app/Http/Requests/ResizeImageRequest.php
+            -also renamed the actual class inside the file, and its usage in ImageManipulationController's resize()
+    -added routes in routes/api.php
+        -also added a "get images by album" route and getByAlbum() for it in ImageManipulationController
+1:05:55
 
 
 
