@@ -83,7 +83,16 @@ PROJECT STEPS
     -implement ImageManipulationController's resize()
         -apart from the commited mods, i also ran "composer require intervention/image:^2" (https://image.intervention.io/v2/introduction/installation)
     -implemented all the ImageManipulationController functions
-1:49:38
+
+-API rate limiting
+
+-
+
+
+
+
+
+
 
 
 TODO
