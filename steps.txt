@@ -95,7 +95,9 @@ PROJECT STEPS
                 -(p.s. for step1 of this tutorial i.e. installing nvm, i went to https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating 
                 to check what's the latest version and ran it: "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash")
         )
-
+    -"php artisan migrate"
+    -"npm install"
+    -"npm run dev"
 
 
 
