@@ -80,9 +80,9 @@ PROJECT STEPS
             -also renamed the actual class inside the file, and its usage in ImageManipulationController's resize()
     -added routes in routes/api.php
         -also added a "get images by album" route and getByAlbum() for it in ImageManipulationController
-1:05:55
-
-
+    -implement ImageManipulationController's resize()
+        -apart from the commited mods, i also ran "composer require intervention/image:^2" (https://image.intervention.io/v2/introduction/installation)
+1:42:15
 
 
 
