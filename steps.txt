@@ -86,7 +86,8 @@ PROJECT STEPS
 
 -API rate limiting
 
--
+-authentication - Laravel Breeze
+    -"composer require laravel/breeze --dev"
 
 
 
