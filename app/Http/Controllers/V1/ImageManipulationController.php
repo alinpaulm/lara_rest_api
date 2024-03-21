@@ -4,6 +4,7 @@ namespace App\Http\Controllers\V1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ResizeImageRequest;
+use App\Http\Resources\V1\ImageManipulationResource;
 use App\Models\Album;
 use App\Models\ImageManipulation;
 use Illuminate\Http\UploadedFile;
@@ -18,12 +19,18 @@ class ImageManipulationController extends Controller
      */
     public function index()
     {
-        //
+        return ImageManipulationResource::collection(ImageManipulation::paginate());
     }
-
+    
     public function getByAlbum(Album $album)
     {
-        
+        $where = [
+            'album_id' => $album->id
+        ];
+
+        return ImageManipulationResource::collection(
+            ImageManipulation::where($where)->paginate()
+        );
     }
 
     /**
@@ -85,23 +92,26 @@ class ImageManipulationController extends Controller
 
         $imageManipulation = ImageManipulation::create($data);
 
-        return $imageManipulation;
+        // return $imageManipulation;
+        return new ImageManipulationResource($imageManipulation);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(ImageManipulation $imageManipulation)
+    public function show(ImageManipulation $image)
     {
-        //
+        return new ImageManipulationResource($image);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ImageManipulation $imageManipulation)
+    public function destroy(ImageManipulation $image)
     {
-        //
+        $image->delete();
+
+        return response('', 204);
     }
 
     protected function getWidthAndHeight($w, $h, $originalPath)
