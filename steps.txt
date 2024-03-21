@@ -88,6 +88,14 @@ PROJECT STEPS
 
 -authentication - Laravel Breeze
     -"composer require laravel/breeze --dev"
+    -"php artisan breeze:install"
+        (
+            -before doing this, i had to update node & npm, so i followed https://linuxgenie.net/how-can-i-update-my-nodejs-to-the-latest-version-on-ubuntu/:
+                (-p.s. nodejs contains npm so by updating nodejs npm will get updated as well)
+                -(p.s. for step1 of this tutorial i.e. installing nvm, i went to https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating 
+                to check what's the latest version and ran it: "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash")
+        )
+
 
 
 
