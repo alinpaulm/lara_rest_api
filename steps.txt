@@ -108,7 +108,6 @@ PROJECT STEPS
     -make sure we only handle the resources of the user authenticated with the token in our controller methods, when making API requests
         -e.g. AlbumController's index()
 
-https://youtu.be/bvvVX9Pny84?t=7626
 -authorization
     -see the "this->authorize()" calls in AlbumController and ImageManipulationController
 
