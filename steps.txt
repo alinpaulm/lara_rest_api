@@ -104,11 +104,13 @@ PROJECT STEPS
     -after this, i registered a new user on http://127.0.0.1:8000/register , and generated a token for the user,
         then copied the token inside the postman collection - right click on the collection, go to Edit, then Variables,
         then copy its value inside the TOKEN variable in both the 'Initial value' and 'Current Value' fields) - now
-        you can see that you can make API requests using this user's token as authentication.
+        you can see that you can make API requests using this user's token as authentication
+    -make sure we only handle the resources of the user authenticated with the token in our controller methods, when making API requests
+        -e.g. AlbumController's index()
 
-2:05:25
-
-
+https://youtu.be/bvvVX9Pny84?t=7626
+-authorization
+    -see the "this->authorize()" calls in AlbumController and ImageManipulationController
 
 
 

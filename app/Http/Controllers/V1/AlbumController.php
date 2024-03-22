@@ -7,17 +7,26 @@ use App\Http\Requests\StoreAlbumRequest;
 use App\Http\Requests\UpdateAlbumRequest;
 use App\Http\Resources\V1\AlbumResource;
 use App\Models\Album;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AlbumController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         // return Album::all();
         // return AlbumResource::collection(Album::all());
-        return AlbumResource::collection(Album::paginate());
+        // return AlbumResource::collection(Album::paginate());
+
+        // NOTE:
+        // $request->user() <=> Auth::user()
+        // $request->user()->id <=> Auth::user()->id <=> Auth::id()
+        return AlbumResource::collection(
+            Album::where('user_id', $request->user()->id)->paginate()
+        );
     }
 
     /**
@@ -26,7 +35,11 @@ class AlbumController extends Controller
     public function store(StoreAlbumRequest $request)
     {
         // $album = Album::create($request->all());
-        $album = Album::create($request->validated());
+
+        $data = $request->validated();
+        $data['user_id'] = $request->user()->id;
+
+        $album = Album::create($data);
 
         // return $album;
         return new AlbumResource($album);
@@ -35,8 +48,10 @@ class AlbumController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Album $album)
+    public function show(Request $request, Album $album)
     {
+        $this->authorize($request->user()->id, $album->user_id);
+
         // return $album;
         return new AlbumResource($album);
     }
@@ -46,6 +61,8 @@ class AlbumController extends Controller
      */
     public function update(UpdateAlbumRequest $request, Album $album)
     {
+        $this->authorize($request->user()->id, $album->user_id);
+        
         // $album->update($request->all());
         $album->update($request->validated());
 
@@ -56,10 +73,12 @@ class AlbumController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Album $album)
+    public function destroy(Request $request, Album $album)
     {
+        $this->authorize($request->user()->id, $album->user_id);
+
         $album->delete();
 
         return response('', 204);
-    }
+    }    
 }
