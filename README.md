@@ -27,9 +27,9 @@ other `DB_` params are already set)
 1. import postman_collection.json in your postman
 2. go to http://127.0.0.1:8000/register - create an user. You will be redirected to http://127.0.0.1:8000/dashboard
 3. in http://127.0.0.1:8000/dashboard, press the 'CREATE NEW TOKEN' button, give it a name, then press 'GENERATE'
-4. copy the value under 'TOKEN' in the postman collection
-    -right click on the collection name, click Edit
-    -go to Variables, and copy its value in the 'Initial value' and 'Current value' of the 'TOKEN' variable
+4. copy the value under 'TOKEN' in the postman collection:  
+    -right click on the collection name, click Edit  
+    -go to Variables, and copy its value in the 'Initial value' and 'Current value' of the 'TOKEN' variable  
     -press CTRL+S to save
 5. (optional, but do it to prove the point(i.e. that we are using API token authentication):  
 log out from the http://127.0.0.1:8000  web page you're in)
