@@ -1,6 +1,6 @@
 PROJECT STEPS
 -------------
-(project created under Ubuntu 22.04, with Laravel 11.0.4, php 8.3, mysql 8.0.36)
+(project created under Ubuntu 22.04, with Laravel 11.0, php 8.3, mysql 8.0)
 
 -create new laravel project
     -run "composer create-project laravel/laravel lara_rest_api"
@@ -82,6 +82,7 @@ PROJECT STEPS
         -also added a "get images by album" route and getByAlbum() for it in ImageManipulationController
     -implement ImageManipulationController's resize()
         -apart from the commited mods, i also ran "composer require intervention/image:^2" (https://image.intervention.io/v2/introduction/installation)
+            -i had to install php8.3-gd extension for it to work
     -implemented all the ImageManipulationController functions
 
 -API rate limiting
