@@ -1,6 +1,7 @@
 ## Lara_REST_API - Laravel Image Manipulation REST API
 (See full project creation steps in steps.txt)  
-(Tutorial follow-up of https://youtu.be/bvvVX9Pny84 / https://github.com/thecodeholic/laravel-image-manipulation-rest-api)
+(Tutorial follow-up of https://youtu.be/bvvVX9Pny84 / https://github.com/thecodeholic/laravel-image-manipulation-rest-api ,  
+recreated from scratch with Laravel 11)
 
 ## Prerequisites
 -php 8.3 (with php8.3-mbstring php8.3-intl php8.3-curl php8.3-mysql php8.3-gd)  
