@@ -110,14 +110,3 @@ PROJECT STEPS
 
 -authorization
     -see the "this->authorize()" calls in AlbumController and ImageManipulationController
-
-
-
-TODO
-----
--remove the tmp nullable() from album and image_manipulations migrations
--add foreign key constraints
-    -also add validation rule? no need - 1) i ignore any possible user_id provided by a malicious user by using $request->validated() instead of $request->all() AND not making a 
-    user_id validation rule and 2) i'll then add the logged in user's id to the validated data array in the controller action
--add unique(user_id, name) validation for album (for a nice error message, to not display the sql error message)
--maybe add unique index(es) to ImageManipulation migration too

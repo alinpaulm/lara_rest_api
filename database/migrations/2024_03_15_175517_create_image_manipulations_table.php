@@ -19,10 +19,10 @@ return new class extends Migration
             $table->string('path', 2000);
             $table->string('type', 25);
             $table->text('data');
-            $table->string('output_path', 2000)->nullable();
+            $table->string('output_path', 2000);
             $table->timestamp('created_at');
-            $table->foreignIdFor(User::class)->nullable();
-            $table->foreignIdFor(Album::class)->nullable();
+            $table->foreignIdFor(User::class)->constrained();
+            $table->foreignIdFor(Album::class)->nullable()->constrained(); // nullable() cuz it's optional
         });
     }
 
